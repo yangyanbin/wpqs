@@ -1,17 +1,20 @@
-方便自己快速的创建一个webpack+es6的web项目，不同于其他脚手架封装所有配置
+# 方便自己快速的创建一个webpack+es6的web项目，不同于其他脚手架封装所有配置
 
-*未完成版
+**未完成版**
+
 主要对自己前端的一个经验和总结
 
-step1:clone wpqs
-step2:cd wpqs
-step3:npm start [name]
-step4:拷贝[name]文件夹到任意工作文件夹
-step5:在[name]项目下npm install
-step6:npm start启动项目
+- step1:clone wpqs
+- step2:cd wpqs
+- step3:npm start [name]
+- step4:拷贝[name]文件夹到任意工作文件夹
+- step5:在[name]项目下npm install
+- step6:npm start启动项目
 
-node v8.5.0 以上
-webpack v4.X
+**dependencies:**
+node v8.5.0 以上 webpack v4.X
+
+***
 
 webpack4.x必须同步安装webpack-cli，在之前两者在同一个包
 
