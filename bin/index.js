@@ -14,6 +14,14 @@ let params = [now];
 if(process.argv.length>2){
 	params = process.argv.slice(2);
 }
-const basePath = path.join('./',params[0]);
+const basePath = path.join('./',params[0].split('@')[0]);
+const frame = utils.getProjectFrameByCL(params).toUpperCase();
 //创建项目
-utils.createApp(basePath);
+switch(frame){
+	case 'REACT':
+		utils.createReactApp(basePath);
+		break;
+	default:
+		utils.createApp(basePath);
+		break;
+}

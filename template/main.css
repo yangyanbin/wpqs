@@ -13,10 +13,11 @@ body{
 #root h1{
     text-align:center;
     animation: h1 1.5s ease-in;
+    transform-origin:bottom;
 }
 @keyframes h1{
     0%{transform:translateX(-50%) skewX(10deg);opacity:0;}
     70%{transform:translateX(0) skewX(0);opacity:1;}
     80%{transform:translateX(0) skewX(-30deg);opacity:1;}
-    100%{transform:translateX(0) skewX(00);opacity:1;}
+    100%{transform:translateX(0) skewX(0);opacity:1;}
 }

@@ -3,10 +3,10 @@
 **未完成版**
 
 主要对自己前端的一个经验和总结
-
+## 目前支持普通es6项目，react项目,后续添加其他，通过frame\(react\)字段配置
 - step1:clone wpqs
 - step2:cd wpqs
-- step3:npm start [name]
+- step3:npm start [name]\[@frame\]
 - step4:拷贝[name]文件夹到任意工作文件夹
 - step5:在[name]项目下npm install
 - step6:npm start启动项目
