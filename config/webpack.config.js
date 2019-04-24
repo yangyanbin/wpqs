@@ -1,4 +1,5 @@
 var path = require('path'),
+  CleanPlugin = require('clean-webpack-plugin'),
   MiniCssExtractPlugin = require('mini-css-extract-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -57,3 +58,9 @@ module.exports = {
         port: 8080
     }
 };
+
+if(process.env.NODE_ENV === 'production'){
+  module.exports.plugins = [
+      new CleanPlugin("dist")
+  ].concat(module.exports.plugins || [])
+}
