@@ -1,0 +1,15 @@
+{
+  "name": "yyb-cli",
+  "version": "1.0.0-bate",
+  "description": "cli",
+  "main": "./bin/index.js",
+  "bin": {
+  	"yyb-cli":"./bin/index.js"
+  },
+  "scripts": {
+    "start": "node ./bin/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yyb",
+  "license": "ISC"
+}

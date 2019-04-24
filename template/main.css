@@ -1,0 +1,22 @@
+html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+body{
+    background: url(./code.jpg) no-repeat;
+    background-size:cover;
+    background-position: center;
+}
+#root h1{
+    text-align:center;
+    animation: h1 1.5s ease-in;
+}
+@keyframes h1{
+    0%{transform:translateX(-50%) skewX(10deg);opacity:0;}
+    70%{transform:translateX(0) skewX(0);opacity:1;}
+    80%{transform:translateX(0) skewX(-30deg);opacity:1;}
+    100%{transform:translateX(0) skewX(00);opacity:1;}
+}
