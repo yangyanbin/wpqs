@@ -12,7 +12,7 @@ module.exports = {
   module:{
     rules:[
       {//js
-        test: /\.js$/,exclude: /node_modules/,loader: "babel-loader"
+        test: /\.js$/,exclude: /node_modules/,loader: ["babel-loader","eslint-loader"]
       },
       {//css
         test: /\.css$/,loader: [MiniCssExtractPlugin.loader,'css-loader']

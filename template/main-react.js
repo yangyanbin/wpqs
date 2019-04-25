@@ -6,3 +6,4 @@ ReactDom.render(
 	<h1>React quick start!!</h1>,
 	document.querySelector('#root')
 );
+document.title = "Let's Rock!";

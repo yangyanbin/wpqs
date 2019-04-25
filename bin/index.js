@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
-const path = require("path");
-const utils = require("./utils");
+const fs = require("fs"),
+	path = require("path"),
+	readline = require('readline'),
+	utils = require("./utils"),
+	config = require("../package.json");
 
 const now = Date.now()+'';
 /*process.argv获取命令行参数，
@@ -14,14 +16,37 @@ let params = [now];
 if(process.argv.length>2){
 	params = process.argv.slice(2);
 }
-const basePath = path.join('./',params[0].split('@')[0]);
-const frame = utils.getProjectFrameByCL(params).toUpperCase();
-//创建项目
-switch(frame){
-	case 'REACT':
-		utils.createReactApp(basePath);
-		break;
-	default:
-		utils.createApp(basePath);
-		break;
+const configArr = ['-v','-h'];
+if(configArr.indexOf(params[0])>=0){
+	switch(params[0].toUpperCase()){
+		case '-v':
+			console.log(config.version);
+			break;
+		case '-h':
+			console.log('-v [appname] [appname@react]');
+			break;
+		default:break;
+	}
+}else{
+	const appName = params[0].split('@')[0];
+	utils.selfConfirm('Create project '+appName+' in the current directory?(y/n): ').then(answer=>{
+		if(answer.toUpperCase()==='Y'){
+			const basePath = path.join('./',appName);
+			const frame = utils.getProjectFrameByCL(params);
+			//创建项目
+			switch(frame.toUpperCase()){
+				case 'REACT':
+					utils.createReactApp(basePath,appName);
+					break;
+				default:
+					utils.createApp(basePath,appName);
+					break;
+			}
+		}else{
+			console.log('Exit!');
+		}
+	});
 }
+
+
+

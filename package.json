@@ -1,14 +1,17 @@
 {
-  "name": "yyb-cli",
+  "name": "webpack-quick-start",
   "version": "1.0.0-bate",
   "description": "cli",
   "main": "./bin/index.js",
   "bin": {
-  	"yyb-cli":"./bin/index.js"
+    "wqs": "./bin/index.js"
   },
   "scripts": {
     "start": "node ./bin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">= 8.5.3"
   },
   "author": "yyb",
   "license": "ISC"

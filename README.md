@@ -1,15 +1,17 @@
-# 方便自己快速的创建一个webpack+es6的web项目，不同于其他脚手架封装所有配置
+# webpack quick start(wqs)
+方便自己快速的创建一个webpack+es6的web项目，不同于其他脚手架封装所有配置，会保留所有配置
 
-**未完成版**
+**webpack+es6+eslint未完成版**
 
 主要对自己前端的一个经验和总结
-## 目前支持普通es6项目，react项目,后续添加其他，通过frame\(react\)字段配置
+### 目前支持普通es6项目，react项目,后续添加其他，通过frame\(react\)字段配置
 - step1:clone wpqs
 - step2:cd wpqs
-- step3:npm start [name]\[@frame\]
-- step4:拷贝[name]文件夹到任意工作文件夹
-- step5:在[name]项目下npm install
-- step6:npm start启动项目
+- step3:npm link
+- step4:切换到任意路径wqs [name]\[@frame\]
+- step5:cd [name]
+- step6:npm install
+- step7:npm start启动项目
 
 **dependencies:**
 node v8.5.0 以上 webpack v4.X
@@ -27,3 +29,13 @@ css-loader处理css文件，style-loader负责创建style标签并将处理后cs
 如果安装sass-loader，需要安装node-sass包，在配置中将sass-loader放到最右方
 
 普通资源文件url-loader可以解决，如果超过设置的limit值，会使用file-loader来解决
+
+在包目录下npm link用于本地开发npm包，创建全局链接相当于全局安装，在需要使用的项目中npm link packageName后将npm包引用局部安装在node_module下
+
+npm unlink删除此npm包
+
+package.json全局安装时会将bin下配置加到全局变量
+
+eslint+es6+webpack依赖eslint/eslint-loader/babel-eslint,eslint配置后支持es6语法，如果使用新特性\(...等\)则需要安装babel-eslint
+
+.eslintrc文件配置env标注要使用的环境，对应环境的全局变量方法不会出错

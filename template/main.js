@@ -5,5 +5,5 @@ const start = ()=>{
 	return Promise.resolve("Let's Rock!")
 };
 start().then(word=>{
-	console.log(word)
+	document.title = word;
 });
