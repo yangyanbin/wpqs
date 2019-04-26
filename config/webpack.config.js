@@ -44,6 +44,7 @@ module.exports = {
     ]
   },
   plugins:[
+    new CleanPlugin(),
     new HtmlWebpackPlugin({
         filename: "index.html",
         template: './public/index.html'
@@ -58,9 +59,3 @@ module.exports = {
         port: 8080
     }
 };
-
-if(process.env.NODE_ENV === 'production'){
-  module.exports.plugins = [
-      new CleanPlugin("dist")
-  ].concat(module.exports.plugins || [])
-}

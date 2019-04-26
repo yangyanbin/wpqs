@@ -43,3 +43,8 @@ eslint+es6+webpack依赖eslint/eslint-loader/babel-eslint,eslint配置后支持e
 #### antd按需加载的两种方式:
 1. import xx from 'antd/lib/xx'指定引入
 2. 安装babel-plugin-import，并在babel配置中添加插件配置，自动将import {xx} from "antd"转换为上述方式
+
+webpack-dev-server命令 --open打开默认浏览器 --useLocalIp使用本地Ip作为路径打开浏览器
+
+webpack --mode=development|production
+开启生产模式和开发模式，同时将process.env.NODE_ENV设置为对应值，只能在代码中获取，在webpack.config.js配置文件中无法获取
