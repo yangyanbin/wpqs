@@ -4,7 +4,7 @@
 **webpack+es6+eslint未完成版**
 
 主要对自己前端的一个经验和总结
-### 目前支持普通es6项目，react项目,后续添加其他，通过frame\(react\)字段配置
+### 目前支持普通es6项目，react项目,后续添加其他，通过frame\(react,antd\)字段配置
 - step1:clone wpqs
 - step2:cd wpqs
 - step3:npm link
@@ -39,3 +39,7 @@ package.json全局安装时会将bin下配置加到全局变量
 eslint+es6+webpack依赖eslint/eslint-loader/babel-eslint,eslint配置后支持es6语法，如果使用新特性\(...等\)则需要安装babel-eslint
 
 .eslintrc文件配置env标注要使用的环境，对应环境的全局变量方法不会出错
+
+#### antd按需加载的两种方式:
+1. import xx from 'antd/lib/xx'指定引入
+2. 安装babel-plugin-import，并在babel配置中添加插件配置，自动将import {xx} from "antd"转换为上述方式

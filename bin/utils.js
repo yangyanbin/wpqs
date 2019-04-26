@@ -22,7 +22,7 @@ function selfConfirm(question){
 		    input: process.stdin,
 		    output: process.stdout
 		});
-		rl.question(question, function(answer){
+		rl.question("\x1B[36m"+question+"\x1B[0m", function(answer){
 		    rl.close();
 		    resolve(answer);
 		});
@@ -40,7 +40,7 @@ function getProjectFrameByCL(params){
 //创建项目
 function createApp(appPath,appName){
 	if(fs.existsSync(appPath)){
-		console.log(appName+'项目已存在!');
+		console.log('\x1B[31m%s\x1B[0m',appName+'项目已存在!');
 		// fs.rmdirSync(appPath);
 		return;
 	}
@@ -69,14 +69,13 @@ function createApp(appPath,appName){
 		copy(getPath('config/webpack.config.js'),appPath+'/webpack.config.js');
 		copy(getPath('config/.babelrc'),appPath+'/.babelrc');
 		copy(getPath('config/.eslintrc'),appPath+'/.eslintrc');
-	    console.log('创建项目成功');
 	});
 }
 
 //创建react项目
-function createReactApp(appPath,appName){
+function createReactApp(appPath,appName,frame){
 	if(fs.existsSync(appPath)){
-		console.log(appName+'项目已存在!');
+		console.log('\x1B[31m%s\x1B[0m',appName+'项目已存在!');
 		// fs.rmdirSync(appPath);
 		return;
 	}
@@ -87,7 +86,7 @@ function createReactApp(appPath,appName){
 	    }
 	    fs.mkdir(appPath+'/src',function(srcErr){
 	    	if(!srcErr){
-	    		copy(getPath('template/main-react.js'),appPath+'/src/main.js');
+	    		copy(getPath(`template/main-${frame}.js`),appPath+'/src/main.js');
 	    		fs.mkdir(appPath+'/src/assets',function(err){
 			    	if(!err){
 			    		copy(getPath('template/main.css'),appPath+'/src/assets/main.css');
@@ -101,11 +100,10 @@ function createReactApp(appPath,appName){
 	    		copy(getPath('template/index.html'),appPath+'/public/index.html');
 	    	}
 	    });
-	    copy(getPath('config/package-react.json'),appPath+'/package.json');
+	    copy(getPath(`config/package-${frame}.json`),appPath+'/package.json');
 		copy(getPath('config/webpack.config.js'),appPath+'/webpack.config.js');
-		copy(getPath('config/.babelrc-react'),appPath+'/.babelrc');
+		copy(getPath(`config/.babelrc-${frame}`),appPath+'/.babelrc');
 		copy(getPath('config/.eslintrc-react'),appPath+'/.eslintrc');
-	    console.log('创建react项目成功');
 	});
 }
 

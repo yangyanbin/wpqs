@@ -34,9 +34,12 @@ if(configArr.indexOf(params[0])>=0){
 			const basePath = path.join('./',appName);
 			const frame = utils.getProjectFrameByCL(params);
 			//创建项目
-			switch(frame.toUpperCase()){
-				case 'REACT':
-					utils.createReactApp(basePath,appName);
+			switch(frame.toLowerCase()){
+				case 'react':
+					utils.createReactApp(basePath,appName,'react');
+					break;
+				case 'antd':
+					utils.createReactApp(basePath,appName,'antd');
 					break;
 				default:
 					utils.createApp(basePath,appName);
