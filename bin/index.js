@@ -36,10 +36,13 @@ if(configArr.indexOf(params[0])>=0){
 			//创建项目
 			switch(frame.toLowerCase()){
 				case 'react':
-					utils.createReactApp(basePath,appName,'react');
+					utils.createFrameApp(basePath,appName,'react');
 					break;
 				case 'antd':
-					utils.createReactApp(basePath,appName,'antd');
+					utils.createFrameApp(basePath,appName,'antd');
+					break;
+				case 'vue':
+					utils.createFrameApp(basePath,appName,'vue');
 					break;
 				default:
 					utils.createApp(basePath,appName);

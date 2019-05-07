@@ -22,7 +22,7 @@ webpack4.x必须同步安装webpack-cli，在之前两者在同一个包
 
 webpack4.x不适用extract-text-webpack-plugin3.x及以下版本，使用更高版本或使用mini-css-extract-plugin代替
 
-babel-loader8.x须使用@babel/core及@babel/preset-env版本，使用"useBuiltIns":"usage"配置需要制定corejs版本并安装
+babel-loader8.x须使用@babel/core及@babel/preset-env版本，使用"useBuiltIns":"usage"配置需要指定corejs版本并安装
 
 style-loader与css-loader区别
 css-loader处理css文件，style-loader负责创建style标签并将处理后css加载到页面
@@ -38,7 +38,9 @@ package.json全局安装时会将bin下配置加到全局变量
 
 eslint+es6+webpack依赖eslint/eslint-loader/babel-eslint,eslint配置后支持es6语法，如果使用新特性\(...等\)则需要安装babel-eslint
 
-.eslintrc文件配置env标注要使用的环境，对应环境的全局变量方法不会出错
+@babel/preset-react提供jsx语法识别
+
+.eslintrc文件配置env标注要使用的环境，对应环境的全局变量方法window,document等不会出错
 
 #### antd按需加载的两种方式:
 1. import xx from 'antd/lib/xx'指定引入

@@ -73,7 +73,7 @@ function createApp(appPath,appName){
 }
 
 //创建react项目
-function createReactApp(appPath,appName,frame){
+function createFrameApp(appPath,appName,frame){
 	if(fs.existsSync(appPath)){
 		console.log('\x1B[31m%s\x1B[0m',appName+'项目已存在!');
 		// fs.rmdirSync(appPath);
@@ -87,6 +87,9 @@ function createReactApp(appPath,appName,frame){
 	    fs.mkdir(appPath+'/src',function(srcErr){
 	    	if(!srcErr){
 	    		copy(getPath(`template/main-${frame}.js`),appPath+'/src/main.js');
+	    		if(frame==='vue'){
+	    			copy(getPath('template/SelfApp.vue'),appPath+'/src/SelfApp.vue');
+	    		}
 	    		fs.mkdir(appPath+'/src/assets',function(err){
 			    	if(!err){
 			    		copy(getPath('template/main.css'),appPath+'/src/assets/main.css');
@@ -101,9 +104,14 @@ function createReactApp(appPath,appName,frame){
 	    	}
 	    });
 	    copy(getPath(`config/package-${frame}.json`),appPath+'/package.json');
-		copy(getPath('config/webpack.config.js'),appPath+'/webpack.config.js');
 		copy(getPath(`config/.babelrc-${frame}`),appPath+'/.babelrc');
-		copy(getPath('config/.eslintrc-react'),appPath+'/.eslintrc');
+		if(frame==='vue'){
+			copy(getPath(`config/.eslintrc-${frame}`),appPath+'/.eslintrc');
+			copy(getPath(`config/webpack.config-${frame}.js`),appPath+'/webpack.config.js');
+		}else{
+			copy(getPath('config/webpack.config.js'),appPath+'/webpack.config.js');
+			copy(getPath('config/.eslintrc-react'),appPath+'/.eslintrc');
+		}
 	});
 }
 
@@ -112,4 +120,4 @@ exports.getPath = getPath;
 exports.selfConfirm = selfConfirm;
 exports.getProjectFrameByCL = getProjectFrameByCL;
 exports.createApp = createApp;
-exports.createReactApp = createReactApp;
+exports.createFrameApp = createFrameApp;
