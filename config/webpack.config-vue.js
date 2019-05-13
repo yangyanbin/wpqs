@@ -3,7 +3,7 @@ var path = require('path'),
   CleanPlugin = require('clean-webpack-plugin'),
   MiniCssExtractPlugin = require('mini-css-extract-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin');
-
+var mockPlugin = require('./mock/mock-plugin');
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -66,6 +66,7 @@ module.exports = {
   devServer:{
         historyApiFallback: true,
         inline: true,
-        port: 8080
+        port: 8080,
+        // before:mockPlugin //open mock server
     }
 };

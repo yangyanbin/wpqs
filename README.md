@@ -1,7 +1,7 @@
 # webpack quick start(wqs)
 方便自己快速的创建一个webpack+es6的web项目，不同于其他脚手架封装所有配置，会保留所有配置
 
-**webpack+es6+eslint未完成版**
+**webpack+es6+eslint+mock未完成版**
 
 主要对自己前端的一个经验和总结
 ### 目前支持普通es6项目，react项目,后续添加其他，通过frame\(react,antd\)字段配置
@@ -47,6 +47,8 @@ eslint+es6+webpack依赖eslint/eslint-loader/babel-eslint,eslint配置后支持e
 2. 安装babel-plugin-import，并在babel配置中添加插件配置，自动将import {xx} from "antd"转换为上述方式
 
 webpack-dev-server命令 --open打开默认浏览器 --useLocalIp使用本地Ip作为路径打开浏览器
+
+在webpack-dev-server中添加before配置，添加mock功能，在项目mock文件夹mockData.js中配置接口约定数据
 
 webpack --mode=development|production
 开启生产模式和开发模式，同时将process.env.NODE_ENV设置为对应值，只能在代码中获取，在webpack.config.js配置文件中无法获取

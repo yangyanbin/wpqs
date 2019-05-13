@@ -19,10 +19,10 @@ if(process.argv.length>2){
 const configArr = ['-v','-h'];
 if(configArr.indexOf(params[0])>=0){
 	switch(params[0].toUpperCase()){
-		case '-v':
+		case '-V':
 			console.log(config.version);
 			break;
-		case '-h':
+		case '-H':
 			console.log('-v [appname] [appname@react]');
 			break;
 		default:break;

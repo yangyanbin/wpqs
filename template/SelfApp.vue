@@ -1,5 +1,5 @@
 <template>
-    <h1>{{message}}</h1>
+    <h1 @click="welcome">{{message}}</h1>
 </template>
 
 <script>
@@ -8,6 +8,11 @@
             return {
                 message: "Vue quick start!!"
             }
+        },
+        method: {
+        	welcome(){
+        		alert("Welcome to WQS");
+        	}
         }
     };
 </script>
