@@ -26,7 +26,8 @@ var mockPlugin = function(app){
 }
 
 function matchUrl(reqUrl,mockUrl){
-  return reqUrl===mockUrl||reqUrl.indexOf(mockUrl+'?')===0;
+  var urlReg = new RegExp('^'+mockUrl+'(\\?+.*)?$','i');
+  return urlReg.test(reqUrl);
 }
 
 exports.default = mockPlugin;
