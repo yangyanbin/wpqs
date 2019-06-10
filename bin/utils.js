@@ -65,6 +65,12 @@ function createApp(appPath,appName){
 	    		copy(getPath('template/index.html'),appPath+'/public/index.html');
 	    	}
 	    });
+	    fs.mkdir(appPath+'/mock',function(err){
+	    	if(!err){
+	    		copy(getPath('mock/mock-plugin.js'),appPath+'/mock/mock-plugin.js');
+	    		copy(getPath('mock/mockData.js'),appPath+'/mock/mockData.js');
+	    	}
+	    });
 	    copy(getPath('config/package.json'),appPath+'/package.json');
 		copy(getPath('config/webpack.config.js'),appPath+'/webpack.config.js');
 		copy(getPath('config/.babelrc'),appPath+'/.babelrc');
