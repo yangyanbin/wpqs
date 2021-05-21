@@ -8,7 +8,7 @@ function copy(originalFile,newFile){
 		if(err){
 			throw err;
 		}
-		console.log(originalFile+' 拷贝成功');
+		console.log(originalFile+' 创建成功');
 	});
 }
 //获取cli中默认文件路径

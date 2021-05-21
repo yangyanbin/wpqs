@@ -27,6 +27,17 @@ if(configArr.indexOf(params[0])>=0){
 			break;
 		default:break;
 	}
+}else if(params[0]&&params[0].toUpperCase()==='HTML'){
+	utils.selfConfirm('Please input file name: ').then(answer=>{
+		const templateFile = path.resolve(__dirname,'../template/index.html');
+		let fileName = answer?answer.trim():'template';
+		let targetPath = '';
+		if(answer.indexOf('.')>0){
+			fileName = answer.split('.')[0];
+			utils.copy();
+		}
+		utils.copy(templateFile,path.resolve('./',fileName+'.html'));
+	});
 }else{
 	const appName = params[0].split('@')[0];
 	utils.selfConfirm('Create project '+appName+' in the current directory?(y/n): ').then(answer=>{
